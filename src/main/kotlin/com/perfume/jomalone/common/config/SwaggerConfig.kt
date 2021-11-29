@@ -25,7 +25,7 @@ class SwaggerConfig : WebMvcConfigurer {
             .enable(true)
     }
 
-    private fun apiInfo() = ApiInfoBuilder().title("Hermione APIs").description("카카오홈 에뮬레이터 헤르미온느 API 상세소개 및 사용법").version("1.0").build()
+    private fun apiInfo() = ApiInfoBuilder().title("Jomalone APIs").description("스마트홈 에뮬레이터 헤르미온느 API 상세소개 및 사용법").version("1.0").build()
 
     override fun addResourceHandlers(registry: ResourceHandlerRegistry) {
         registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/")
