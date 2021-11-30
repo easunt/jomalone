@@ -7,7 +7,7 @@
     <logger name="org.apache.catalina" level="off" additivity="false"/>
     <logger name="tomcat" level="off" additivity="false"/>
     <logger name="io.sentry" level="off" additivity="false"/>
-    <logger name="org.hibernate" level="off" additivity="false"/>
+    <logger name="org.hibernate" level="off" additivity="true"/>
     <logger name="com.zaxxer.hikari" level="off" additivity="false"/>
     <logger name="io.netty" level="off" additivity="false"/>
     <logger name="io.lettuce.core" level="off" additivity="false"/>

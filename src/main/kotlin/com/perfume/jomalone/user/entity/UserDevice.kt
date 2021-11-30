@@ -1,4 +1,4 @@
-package com.perfume.jomalone.`user-device`.entity
+package com.perfume.jomalone.user.entity
 
 import com.perfume.jomalone.common.entity.BaseEntity
 import javax.persistence.Entity

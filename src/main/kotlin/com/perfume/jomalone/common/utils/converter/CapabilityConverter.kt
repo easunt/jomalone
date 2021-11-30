@@ -2,7 +2,7 @@ package com.perfume.jomalone.common.utils.converter
 
 import com.fasterxml.jackson.databind.JavaType
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.perfume.jomalone.`default-device`.entity.Capability
+import com.perfume.jomalone.default.entity.Capability
 import java.util.ArrayList
 import javax.persistence.Converter
 

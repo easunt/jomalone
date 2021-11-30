@@ -18,6 +18,7 @@ class HermioneExceptionHandler {
 
     @ExceptionHandler
     fun handleUnexpectedException(ex: Exception): ResponseEntity<HermioneResponse> {
+        ex.printStackTrace()
         ThreadContextUtils.setException(ex)
         return ResponseEntity(HermioneResponse(ApiResult.UNEXPECTED_ERROR), ApiResult.UNEXPECTED_ERROR.httpStatus)
     }
