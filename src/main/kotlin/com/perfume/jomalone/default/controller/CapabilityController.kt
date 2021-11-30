@@ -1,4 +1,4 @@
-package com.perfume.jomalone.`default-device`.controller
+package com.perfume.jomalone.default.controller
 
 import org.springframework.web.bind.annotation.RestController
 

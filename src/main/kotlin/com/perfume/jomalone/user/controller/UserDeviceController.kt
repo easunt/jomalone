@@ -1,4 +1,4 @@
-package com.perfume.jomalone.`user-device`.controller
+package com.perfume.jomalone.user.controller
 
 import org.springframework.stereotype.Controller
 

@@ -1,4 +1,4 @@
-package com.perfume.jomalone.`user-device`.service
+package com.perfume.jomalone.user.service
 
 import org.jvnet.hk2.annotations.Service
 import org.springframework.web.client.RestTemplate

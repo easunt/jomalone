@@ -1,4 +1,4 @@
-package com.perfume.jomalone.`default-device`.entity
+package com.perfume.jomalone.default.entity
 
 import com.perfume.jomalone.common.entity.BaseEntity
 import com.perfume.jomalone.common.utils.converter.JpaJsonConverter
