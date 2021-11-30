@@ -63,6 +63,9 @@ class AccessLoggingFilter() : OncePerRequestFilter() {
                 StructuredArguments.value("response", responseLoggingMap),
                 StructuredArguments.value("exception", ThreadContextUtils.getStackTrace())
             )
+        } finally {
+            responseWrapper.copyBodyToResponse()
+            ThreadContextUtils.removeAll()
         }
     }
 
