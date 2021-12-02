@@ -11,7 +11,7 @@ spring:
       idle-timeout: 60000
       max-lifetime: 1800000
       initialization-fail-timeout: 10
-      pool-name: hermione
+      pool-name: jomalone           # FIXME
       data-source-properties:
         useServerPrepStmts: false     # (MYSQL) recommended for performance
         cachePrepStmts: true

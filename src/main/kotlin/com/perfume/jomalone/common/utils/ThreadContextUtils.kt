@@ -29,7 +29,7 @@ object ThreadContextUtils {
 
     private fun getContext(): ThreadContext {
         return contextHolder.get() ?: run {
-            val threadContext = ThreadContext("HERMIONE-" + UUID.randomUUID(), 0, null)
+            val threadContext = ThreadContext("JOMALONE-" + UUID.randomUUID(), 0, null)
             contextHolder.set(threadContext)
             return threadContext
         }

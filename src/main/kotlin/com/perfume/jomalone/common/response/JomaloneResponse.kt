@@ -4,8 +4,9 @@ import com.fasterxml.jackson.annotation.JsonInclude
 import com.perfume.jomalone.common.constant.ApiResult
 import org.springframework.http.HttpStatus
 
+//FIXME :: change
 @JsonInclude(JsonInclude.Include.NON_NULL)
-data class HermioneResponse(
+data class JomaloneResponse(
     val httpStatus: HttpStatus,
     val code: Int,
     val message: String? = null,
