@@ -36,7 +36,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("com.fasterxml.jackson.core:jackson-core:2.10.3")
+    implementation("com.fasterxml.jackson.core:jackson-core:2.11.4")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.11.4")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.11.4")
 
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8") // jdk 확인하

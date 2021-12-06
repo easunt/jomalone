@@ -9,7 +9,9 @@ create table if not exists attribute
     name       varchar(255) null,
     supported  varchar(255) null,
     writable   varchar(255) null,
-    step       bigint       null
+    step       bigint       null,
+    created_at  datetime     null,
+    modified_at datetime     null
 );
 
 create table if not exists capability
