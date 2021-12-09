@@ -11,12 +11,13 @@ import org.springframework.web.bind.annotation.*
 class AttributeController(val attributeService: AttributeService) {
     @GetMapping("")
     fun list(): List<AttributeResponse> {
-        return attributeService.list().map { AttributeResponse.of(it) }
+        return attributeService.list().map { AttributeResponse.of(it.id, it) }
     }
 
     @GetMapping("/{id}")
     fun findOne(@PathVariable id: Long): AttributeResponse {
-        return AttributeResponse.of(attributeService.findOne(id))
+        val attribute = attributeService.findOne(id)
+        return AttributeResponse.of(attribute.id, attribute)
     }
 
     @PostMapping("")

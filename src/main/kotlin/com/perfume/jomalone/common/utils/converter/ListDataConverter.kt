@@ -10,5 +10,5 @@ class ListDataConverter : GenericDataConverter<List<Any>>() {
     private val defaultObjectMapper = jacksonObjectMapper()
 
     override val type: JavaType = defaultObjectMapper.typeFactory.constructCollectionType(ArrayList::class.java, Any::class.java)
-    override fun getDefault() = emptyList<Any>()
+    override fun getDefault() = null
 }

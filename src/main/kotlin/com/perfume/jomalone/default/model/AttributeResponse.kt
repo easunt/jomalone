@@ -5,7 +5,8 @@ import com.perfume.jomalone.default.entity.Attribute
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class AttributeResponse(
-    val name: String,
+    val id: Long?,
+    val name: String?,
     val min: Long?,
     val max: Long?,
     val step: Long?,
@@ -15,8 +16,11 @@ data class AttributeResponse(
 ) {
     companion object {
         fun of(attribute: Attribute): AttributeResponse {
-            return AttributeResponse(attribute.name, attribute.minimum, attribute.maximum,
-                attribute.step, attribute.supported, attribute.writable, attribute.mutability)
+            return this.of(null, attribute)
+        }
+
+        fun of(id: Long?, attribute: Attribute): AttributeResponse {
+            return AttributeResponse(id, attribute.name, attribute.minimum, attribute.maximum, attribute.step, attribute.supported, attribute.writable, attribute.mutability)
         }
     }
 }

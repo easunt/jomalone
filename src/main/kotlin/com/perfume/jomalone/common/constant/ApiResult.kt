@@ -14,6 +14,7 @@ enum class ApiResult(
 
     //404
     ATTRIBUTE_NOT_FOUND(HttpStatus.NOT_FOUND, 404_01_001, "attribute not found."),
+    CAPABILITY_NOT_FOUND(HttpStatus.NOT_FOUND, 404_01_002, "capability not found."),
 
     OK(HttpStatus.OK, 200_00_000, "OK");
 }
