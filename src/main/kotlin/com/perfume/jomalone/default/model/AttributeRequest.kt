@@ -7,6 +7,7 @@ class AttributeRequest(
     val step: Long?,
     val supported: List<Any>?,
     val writable: List<Any>?,
-    val mutability: String?
+    val mutability: String?,
+    val state: Map<String, Any>?
 ) {
 }

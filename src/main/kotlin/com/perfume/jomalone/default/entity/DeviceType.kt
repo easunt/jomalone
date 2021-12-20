@@ -6,15 +6,12 @@ import javax.persistence.*
 
 @Entity
 class DeviceType(
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0L,
+    val code: String,
     val name: String,
-    @Lob @Convert(converter = JpaJsonConverter::class)
-    val state: Map<String, Any>,
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "device_type_id")
     val deviceTypeCapabilities: List<DeviceTypeCapability>
 
-) : BaseEntity() {
-}
+) : BaseEntity() {}

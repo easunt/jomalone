@@ -9,8 +9,8 @@ data class CapabilityResponse(
 ) {
     companion object {
         fun of(capability: Capability): CapabilityResponse {
-            return CapabilityResponse(capability.id, capability.name, capability.capabilityAttributes.map {
-                mapOf(it.attribute.name to AttributeResponse.of(it.attribute).copy(name = null)) })
+            return CapabilityResponse(capability.id, capability.name, capability.capabilityAttributes?.map {
+                mapOf(it.attribute.name to AttributeResponse.of(it.attribute).copy(name = null)) } ?: emptyList())
             //TODO:: Space Complexity 관점에서 copy 가 그닥 좋지 않을듯... 개선필요
         }
     }

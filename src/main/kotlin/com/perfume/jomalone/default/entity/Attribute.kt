@@ -3,6 +3,7 @@ package com.perfume.jomalone.default.entity
 import com.perfume.jomalone.common.constant.ApiResult
 import com.perfume.jomalone.common.entity.BaseEntity
 import com.perfume.jomalone.common.exception.AppException
+import com.perfume.jomalone.common.utils.converter.JpaJsonConverter
 import com.perfume.jomalone.common.utils.converter.ListDataConverter
 import com.perfume.jomalone.default.model.AttributeRequest
 import org.springframework.data.jpa.repository.JpaRepository
@@ -10,21 +11,26 @@ import javax.persistence.*
 
 @Entity
 class Attribute(
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) val id: Long = 0L,
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long = 0L,
     var name: String,
     var minimum: Long?,
     var maximum: Long?,
     var step: Long?,
     @Convert(converter = ListDataConverter::class) var supported: List<Any>?,
     @Convert(converter = ListDataConverter::class) var writable: List<Any>?,
-    var mutability: String
+    var mutability: String,
+    @Convert(converter = JpaJsonConverter::class)
+    var state: Map<String, Any>?
 ) : BaseEntity() {
     companion object {
         fun of(id: Long, attributeRequest: AttributeRequest): Attribute {
             if (attributeRequest.name == null || attributeRequest.mutability == null) {
                 throw AppException(ApiResult.ATTRIBUTE_REQUEST_INVALID, null)
             }
-            return Attribute(id, attributeRequest.name, attributeRequest.min, attributeRequest.max, attributeRequest.step, attributeRequest.supported, attributeRequest.writable, attributeRequest.mutability)
+            return Attribute(id, attributeRequest.name, attributeRequest.min, attributeRequest.max, attributeRequest.step, attributeRequest.supported,
+                attributeRequest.writable, attributeRequest.mutability, attributeRequest.state)
         }
 
         fun of(attributeRequest: AttributeRequest): Attribute {

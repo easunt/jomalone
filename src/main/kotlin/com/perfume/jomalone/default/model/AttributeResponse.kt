@@ -12,7 +12,8 @@ data class AttributeResponse(
     val step: Long?,
     val supported: List<Any>?,
     val writable: List<Any>?,
-    val mutability: String
+    val mutability: String,
+    val state: Map<String, Any>?
 ) {
     companion object {
         fun of(attribute: Attribute): AttributeResponse {
@@ -20,7 +21,8 @@ data class AttributeResponse(
         }
 
         fun of(id: Long?, attribute: Attribute): AttributeResponse {
-            return AttributeResponse(id, attribute.name, attribute.minimum, attribute.maximum, attribute.step, attribute.supported, attribute.writable, attribute.mutability)
+            return AttributeResponse(id, attribute.name, attribute.minimum, attribute.maximum, attribute.step,
+                attribute.supported, attribute.writable, attribute.mutability, attribute.state)
         }
     }
 }
