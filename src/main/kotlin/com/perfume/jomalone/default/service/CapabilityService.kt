@@ -39,7 +39,7 @@ class CapabilityService(
         capabilityRepository.save(capability)
     }
 
-    capabilityRepository.del
-    fun delete(id: Long) {eteById(id)
+    fun delete(id: Long) {
+        capabilityRepository.deleteById(id)
     }
 }
