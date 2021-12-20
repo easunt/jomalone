@@ -6,10 +6,11 @@ create table if not exists attribute
     maximum    bigint       null,
     minimum    bigint       null,
     mutability varchar(255) null,
-    name       varchar(255) null,
+    name       varchar(255) not null,
     supported  varchar(255) null,
     writable   varchar(255) null,
     step       bigint       null,
+    state       longtext     null,
     created_at  datetime     null,
     modified_at datetime     null
 );
@@ -20,7 +21,7 @@ create table if not exists capability
         primary key,
     created_at  datetime     null,
     modified_at datetime     null,
-    name        varchar(255) null
+    name        varchar(255) not null
 );
 
 create table if not exists capability_attribute
@@ -39,8 +40,8 @@ create table if not exists device_type
         primary key,
     created_at  datetime     null,
     modified_at datetime     null,
-    name        varchar(255) null,
-    state       longtext     null
+    name        varchar(255) not null,
+    code        varchar(255) not null
 );
 
 create table if not exists device_type_capability

@@ -10,9 +10,9 @@ INSERT INTO jomalone.capability (id, created_at, modified_at, name) VALUES (3, '
 INSERT INTO jomalone.capability (id, created_at, modified_at, name) VALUES (4, '2021-12-02 00:08:28', '2021-12-02 00:08:30', 'Color') ON DUPLICATE KEY UPDATE name='Color';
 INSERT INTO jomalone.capability (id, created_at, modified_at, name) VALUES (5, '2021-12-02 00:08:32', '2021-12-02 00:08:34', 'ColorTemperature') ON DUPLICATE KEY UPDATE name='ColorTemperature';
 
-INSERT INTO jomalone.device_type (id, created_at, modified_at, name, state) VALUES (1, '2021-12-02 00:13:47', '2021-12-02 00:13:49', 'Light', '{"power" : "on"}') ON DUPLICATE KEY UPDATE name='Light';
-INSERT INTO jomalone.device_type (id, created_at, modified_at, name, state) VALUES (2, '2021-12-02 00:13:51', '2021-12-02 00:13:52', 'LightDimmer', '{"power": "on", "brightness": 50 }') ON DUPLICATE KEY UPDATE name='LightDimmer';
-INSERT INTO jomalone.device_type (id, created_at, modified_at, name, state) VALUES (3, '2021-12-02 00:13:53', '2021-12-02 00:13:55', 'ColorLightDimmer', '{"power": "on", "brightness": 50, "colorMode": "color", "color": "#FFFFFF", "colorTemperature": 5000}') ON DUPLICATE KEY UPDATE name='ColorLightDimmer';
+INSERT INTO jomalone.device_type (id, created_at, modified_at, name, code) VALUES (1, '2021-12-02 00:13:47', '2021-12-02 00:13:49', '조명', 'Light') ON DUPLICATE KEY UPDATE code='Light';
+INSERT INTO jomalone.device_type (id, created_at, modified_at, name, code) VALUES (2, '2021-12-02 00:13:51', '2021-12-02 00:13:52', '조명', 'LightDimmer') ON DUPLICATE KEY UPDATE code='LightDimmer';
+INSERT INTO jomalone.device_type (id, created_at, modified_at, name, code) VALUES (3, '2021-12-02 00:13:53', '2021-12-02 00:13:55', '조명', 'ColorLightDimmer') ON DUPLICATE KEY UPDATE code='ColorLightDimmer';
 
 INSERT INTO jomalone.capability_attribute (id, created_at, modified_at, attribute_id, capability_id) VALUES (1, '2021-12-02 00:11:11', '2021-12-02 00:11:14', 2, 1) ON DUPLICATE KEY UPDATE capability_id=1;
 INSERT INTO jomalone.capability_attribute (id, created_at, modified_at, attribute_id, capability_id) VALUES (2, '2021-12-02 00:11:16', '2021-12-02 00:11:17', 1, 2) ON DUPLICATE KEY UPDATE capability_id=2;

@@ -1,12 +1,11 @@
 package com.perfume.jomalone.default.controller
 
+import com.perfume.jomalone.default.entity.Attribute
 import com.perfume.jomalone.default.entity.Capability
+import com.perfume.jomalone.default.model.CapabilityRequest
 import com.perfume.jomalone.default.model.CapabilityResponse
 import com.perfume.jomalone.default.service.CapabilityService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/v1/capabilities")
@@ -21,6 +20,26 @@ class CapabilityController(
     @GetMapping("/{id}")
     fun findOne(@PathVariable id: Long): CapabilityResponse {
         return CapabilityResponse.of(capabilityService.findOne(id))
+    }
+
+    @PostMapping("")
+    fun create(@RequestBody capabilityRequest: CapabilityRequest) {
+        return capabilityService.create(capabilityRequest)
+    }
+
+    @PutMapping("/{id}")
+    fun override(@PathVariable id: Long, @RequestBody capabilityRequest: CapabilityRequest) {
+        capabilityService.override(Capability.of(id, capabilityRequest))
+    }
+
+    @PatchMapping("/{id}")
+    fun modify(@PathVariable id: Long, @RequestBody capabilityRequest: CapabilityRequest) {
+        capabilityService.modify(id, capabilityRequest)
+    }
+
+    @DeleteMapping("/{id}")
+    fun delete(@PathVariable id: Long) {
+        capabilityService.delete(id)
     }
 
 }
