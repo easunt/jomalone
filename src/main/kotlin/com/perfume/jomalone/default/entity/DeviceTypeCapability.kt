@@ -12,5 +12,4 @@ class DeviceTypeCapability(
     @JoinColumn(name = "capability_id")
     val capability: Capability
 
-) : BaseEntity() {
-}
+) : BaseEntity() {}

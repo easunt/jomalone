@@ -21,25 +21,25 @@ class CapabilityService(
     }
 
     fun create(capabilityRequest: CapabilityRequest) {
-        val attributeCapabilities = capabilityRequest.attributes?.let { attributeIds ->
-            attributeService.listByIds(attributeIds).map { CapabilityAttribute.of(it) }
-        } ?: emptyList()
-
-        val capability = Capability.of(capabilityRequest, attributeCapabilities)
+        val capabilityAttributes = attributeService.listByIds(capabilityRequest.attributes)?.map { CapabilityAttribute.of(it) }
+        val capability = Capability.of(capabilityRequest, capabilityAttributes)
         capabilityRepository.save(capability)
     }
 
-    fun override(capability: Capability) {
+    fun override(capabilityRequest: CapabilityRequest, id: Long) {
+        val capabilityAttributes = attributeService.listByIds(capabilityRequest.attributes)?.map { CapabilityAttribute.of(it) }
+        val capability = Capability.of(id, capabilityRequest, capabilityAttributes)
         capabilityRepository.save(capability)
     }
 
     fun modify(id: Long, capabilityRequest: CapabilityRequest) {
         val capability = this.findOne(id)
-        capability.modify(capabilityRequest)
+        val capabilityAttributes = attributeService.listByIds(capabilityRequest.attributes)?.map { CapabilityAttribute.of(it) }
+        capability.modify(capabilityRequest, capabilityAttributes)
         capabilityRepository.save(capability)
     }
 
-    fun delete(id: Long) {
-        capabilityRepository.deleteById(id)
+    capabilityRepository.del
+    fun delete(id: Long) {eteById(id)
     }
 }

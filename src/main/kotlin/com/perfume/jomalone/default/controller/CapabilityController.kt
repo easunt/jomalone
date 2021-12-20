@@ -29,7 +29,7 @@ class CapabilityController(
 
     @PutMapping("/{id}")
     fun override(@PathVariable id: Long, @RequestBody capabilityRequest: CapabilityRequest) {
-        capabilityService.override(Capability.of(id, capabilityRequest))
+        capabilityService.override(capabilityRequest, id)
     }
 
     @PatchMapping("/{id}")
