@@ -13,8 +13,8 @@ class AttributeService(private val attributeRepository: AttributeRepository) {
         return attributeRepository.findAll()
     }
 
-    fun listByIds(ids: List<Long>): List<Attribute> {
-        return attributeRepository.findAllById(ids)
+    fun listByIds(ids: List<Long>?): List<Attribute>? {
+        return ids?.let { attributeRepository.findAllById(it) }
     }
 
     fun findOne(id: Long): Attribute {
