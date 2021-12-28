@@ -1,6 +1,6 @@
 package com.perfume.jomalone.default.model
 
-class AttributeRequest(
+data class AttributeRequest(
     val name: String?,
     val min: Long?,
     val max: Long?,

@@ -7,6 +7,7 @@ import com.perfume.jomalone.default.entity.CapabilityAttribute
 import com.perfume.jomalone.default.entity.CapabilityRepository
 import com.perfume.jomalone.default.model.CapabilityRequest
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class CapabilityService(
@@ -32,11 +33,11 @@ class CapabilityService(
         capabilityRepository.save(capability)
     }
 
+    @Transactional
     fun modify(id: Long, capabilityRequest: CapabilityRequest) {
         val capability = this.findOne(id)
         val capabilityAttributes = attributeService.listByIds(capabilityRequest.attributes)?.map { CapabilityAttribute.of(it) }
         capability.modify(capabilityRequest, capabilityAttributes)
-        capabilityRepository.save(capability)
     }
 
     fun delete(id: Long) {

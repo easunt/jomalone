@@ -6,6 +6,7 @@ import com.perfume.jomalone.default.entity.Attribute
 import com.perfume.jomalone.default.entity.AttributeRepository
 import com.perfume.jomalone.default.model.AttributeRequest
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class AttributeService(private val attributeRepository: AttributeRepository) {
@@ -29,10 +30,10 @@ class AttributeService(private val attributeRepository: AttributeRepository) {
         attributeRepository.save(attribute)
     }
 
+    @Transactional
     fun modify(id: Long, attributeRequest: AttributeRequest) {
         val attribute = this.findOne(id)
         attribute.modify(attributeRequest)
-        attributeRepository.save(attribute)
     }
 
     fun delete(id: Long) {

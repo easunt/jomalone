@@ -8,8 +8,14 @@ class DeviceTypeCapability(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0L,
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "capability_id")
     val capability: Capability
 
-) : BaseEntity() {}
+) : BaseEntity() {
+    companion object {
+        fun of(capability: Capability): DeviceTypeCapability {
+            return DeviceTypeCapability(0L, capability)
+        }
+    }
+}
