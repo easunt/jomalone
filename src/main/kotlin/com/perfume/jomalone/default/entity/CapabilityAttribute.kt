@@ -9,7 +9,7 @@ class CapabilityAttribute(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0L,
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "attribute_id")
     val attribute: Attribute
 ) : BaseEntity() {

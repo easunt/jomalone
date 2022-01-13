@@ -13,7 +13,7 @@ class Capability(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0L, var name: String,
-    @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
+    @OneToMany(fetch = FetchType.EAGER, cascade = [CascadeType.ALL])
     @JoinColumn(name = "capability_id")
     var capabilityAttributes: MutableList<CapabilityAttribute>?
 ) : BaseEntity() {

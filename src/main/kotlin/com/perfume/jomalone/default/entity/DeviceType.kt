@@ -6,6 +6,7 @@ import com.perfume.jomalone.common.entity.BaseEntity
 import com.perfume.jomalone.common.exception.AppException
 import com.perfume.jomalone.default.model.CapabilityRequest
 import com.perfume.jomalone.default.model.DeviceTypeRequest
+import org.springframework.data.jpa.repository.JpaRepository
 import javax.persistence.*
 
 @Entity
@@ -13,7 +14,7 @@ class DeviceType(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0L, var code: String, var name: String,
-    @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
+    @OneToMany(fetch = FetchType.EAGER, cascade = [CascadeType.ALL])
     @JoinColumn(name = "device_type_id")
     var deviceTypeCapabilities: MutableList<DeviceTypeCapability>?
 
@@ -40,3 +41,5 @@ class DeviceType(
         deviceTypeCapabilities?.let { this.deviceTypeCapabilities = it.toMutableList() }
     }
 }
+
+interface DeviceTypeRepository : JpaRepository<DeviceType, Long> {}

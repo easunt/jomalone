@@ -2,6 +2,7 @@ package com.perfume.jomalone.default.service
 
 import com.perfume.jomalone.common.constant.ApiResult
 import com.perfume.jomalone.common.exception.AppException
+import com.perfume.jomalone.default.entity.Attribute
 import com.perfume.jomalone.default.entity.Capability
 import com.perfume.jomalone.default.entity.CapabilityAttribute
 import com.perfume.jomalone.default.entity.CapabilityRepository
@@ -11,10 +12,15 @@ import org.springframework.transaction.annotation.Transactional
 
 @Service
 class CapabilityService(
-    val capabilityRepository: CapabilityRepository, val attributeService: AttributeService
+    val capabilityRepository: CapabilityRepository,
+    val attributeService: AttributeService
 ) {
     fun list(): List<Capability> {
         return capabilityRepository.findAll()
+    }
+
+    fun listByIds(ids: List<Long>?): List<Capability>? {
+        return ids?.let { capabilityRepository.findAllById(it) }
     }
 
     fun findOne(id: Long): Capability {
